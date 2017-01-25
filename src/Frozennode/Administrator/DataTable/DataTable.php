@@ -116,7 +116,7 @@ class DataTable {
 		//get things going by grouping the set
 		$table = $model->getTable();
 		$keyName = $model->getKeyName();
-		$query = $model->groupBy($table . '.' . $keyName);
+		$query = $model;
 
 		//get the Illuminate\Database\Query\Builder instance and set up the count query
 		$dbQuery = $query->getQuery();
