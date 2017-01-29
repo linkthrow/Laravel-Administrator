@@ -85,9 +85,8 @@ class DataTable {
 		$output = $this->performCountQuery($countQuery, $querySql, $queryBindings, $page);
 
 		//now we need to limit and offset the rows in remembrance of our dear lost friend paginate()
-		$query->take($this->rowsPerPage);
-		$query->skip($this->rowsPerPage * ($output['page'] === 0 ? $output['page'] : $output['page'] - 1));
-
+		$query = $query->take($this->rowsPerPage);
+		$query = $query->skip($this->rowsPerPage * ($output['page'] === 0 ? $output['page'] : $output['page'] - 1));
 		//parse the results
 		$output['results'] = $this->parseResults($query->get());
 
